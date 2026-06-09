@@ -38,7 +38,7 @@ class TrainConfig:
             early stopping restores the best weights.
         reduce_lr_patience: Number of epochs with no validation-loss improvement
             before reducing the learning rate.
-        dropout_rate: Dropout applied after each custom dense layer.
+        dropout_rate: Dropout applied after the custom dense layer.
         hidden_units: Sizes of the custom dense layers placed on top of
             EfficientNetB0.
     """
@@ -53,12 +53,12 @@ class TrainConfig:
     validation_split: float = 0.2
     test_split: float = 0.2
     seed: int = 42
-    learning_rate: float = 1e-4
+    learning_rate: float = 3e-4
     epochs: int = 150
     patience: int = 5
     reduce_lr_patience: int = 3
-    dropout_rate: float = 0.45
-    hidden_units: tuple[int, int] = (128, 256)
+    dropout_rate: float = 0.20
+    hidden_units: tuple[int, ...] = (512,)
 
     @property
     def checkpoint_path(self) -> Path:

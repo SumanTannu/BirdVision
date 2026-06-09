@@ -233,10 +233,10 @@ Most settings are in `bird_classifier/config.py`:
 ```python
 image_size = (224, 224)
 batch_size = 32
-learning_rate = 1e-4
+learning_rate = 3e-4
 epochs = 150
-dropout_rate = 0.45
-hidden_units = (128, 256)
+dropout_rate = 0.20
+hidden_units = (512,)
 ```
 
 Update these values if you want to tune training behavior.
@@ -249,3 +249,5 @@ Update these values if you want to tune training behavior.
   numeric model outputs back into bird class labels.
 - Large bird datasets can take a long time to train on CPU. GPU runtime is
   recommended.
+- A 3-epoch run is mainly a smoke test. For useful accuracy, train for more
+  epochs, for example `python scripts/train.py --epochs 30`.

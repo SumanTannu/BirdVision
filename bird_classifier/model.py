@@ -63,13 +63,14 @@ def build_efficientnetb0_model(num_classes: int, config) -> Model:
         input_shape=(*config.image_size, 3),
         include_top=False,
         weights="imagenet",
-        pooling="max",
+        pooling="avg",
     )
     base_model.trainable = False
 
     x = base_model(x, training=False)
     for units in config.hidden_units:
         x = layers.Dense(units, activation="relu")(x)
+        x = layers.BatchNormalization()(x)
         x = layers.Dropout(config.dropout_rate)(x)
 
     outputs = layers.Dense(num_classes, activation="softmax")(x)

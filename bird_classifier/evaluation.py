@@ -54,7 +54,12 @@ def save_classification_report(y_true, y_pred, output_path):
         values for each class plus aggregate rows.
     """
 
-    report = classification_report(y_true, y_pred, output_dict=True)
+    report = classification_report(
+        y_true,
+        y_pred,
+        output_dict=True,
+        zero_division=0,
+    )
     report_df = pd.DataFrame(report).transpose()
     output_path.parent.mkdir(parents=True, exist_ok=True)
     report_df.to_csv(output_path)
