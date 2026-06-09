@@ -6,9 +6,14 @@ classification report.
 """
 
 import argparse
+import sys
 from pathlib import Path
 
 import tensorflow as tf
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
 from bird_classifier.config import TrainConfig
 from bird_classifier.data import build_train_dataframe, create_test_generator, load_class_indices, split_dataframe

@@ -5,10 +5,15 @@ image, and prints the most likely bird class with its confidence score.
 """
 
 import argparse
+import sys
 from pathlib import Path
 
 import numpy as np
 import tensorflow as tf
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
 from bird_classifier.config import TrainConfig
 from bird_classifier.data import load_class_indices
