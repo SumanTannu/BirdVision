@@ -38,6 +38,8 @@ class TrainConfig:
             early stopping restores the best weights.
         reduce_lr_patience: Number of epochs with no validation-loss improvement
             before reducing the learning rate.
+        label_smoothing: Softens one-hot labels during training so the model is
+            less likely to become overconfident on the training set.
         dropout_rate: Dropout applied after the custom dense layer.
         hidden_units: Sizes of the custom dense layers placed on top of
             EfficientNetB0.
@@ -57,8 +59,9 @@ class TrainConfig:
     epochs: int = 150
     patience: int = 5
     reduce_lr_patience: int = 3
-    dropout_rate: float = 0.20
-    hidden_units: tuple[int, ...] = (512,)
+    label_smoothing: float = 0.1
+    dropout_rate: float = 0.30
+    hidden_units: tuple[int, ...] = (256,)
 
     @property
     def checkpoint_path(self) -> Path:

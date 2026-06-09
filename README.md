@@ -210,8 +210,7 @@ Input image
 -> augmentation layers
 -> EfficientNetB0 pretrained backbone
 -> Dense layer
--> Dropout
--> Dense layer
+-> Batch normalization
 -> Dropout
 -> Softmax bird-class output
 ```
@@ -229,8 +228,9 @@ image_size = (224, 224)
 batch_size = 32
 learning_rate = 3e-4
 epochs = 150
-dropout_rate = 0.20
-hidden_units = (512,)
+label_smoothing = 0.1
+dropout_rate = 0.30
+hidden_units = (256,)
 ```
 
 Update these values if you want to tune training behavior.

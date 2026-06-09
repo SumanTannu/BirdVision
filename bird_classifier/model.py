@@ -19,18 +19,19 @@ def build_augmentation(image_size: tuple[int, int]) -> tf.keras.Sequential:
 
     Returns:
         A Keras `Sequential` layer that resizes images and applies random
-        horizontal flips, rotations, zoom, and contrast changes. These
-        transformations help the model generalize to bird photos with different
-        framing, orientation, and lighting.
+        horizontal flips, rotations, translation, zoom, and contrast changes.
+        These transformations help the model generalize to bird photos with
+        different framing, orientation, and lighting.
     """
 
     return tf.keras.Sequential(
         [
             layers.Resizing(*image_size),
             layers.RandomFlip("horizontal"),
-            layers.RandomRotation(0.1),
-            layers.RandomZoom(0.1),
-            layers.RandomContrast(0.1),
+            layers.RandomRotation(0.15),
+            layers.RandomTranslation(0.08, 0.08),
+            layers.RandomZoom(0.15),
+            layers.RandomContrast(0.2),
         ],
         name="augmentation",
     )
@@ -77,7 +78,9 @@ def build_efficientnetb0_model(num_classes: int, config) -> Model:
     model = Model(inputs=inputs, outputs=outputs, name="efficientnetb0_bird_classifier")
     model.compile(
         optimizer=Adam(learning_rate=config.learning_rate),
-        loss="categorical_crossentropy",
+        loss=tf.keras.losses.CategoricalCrossentropy(
+            label_smoothing=config.label_smoothing
+        ),
         metrics=["accuracy"],
     )
     return model
