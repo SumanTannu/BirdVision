@@ -27,7 +27,6 @@ new bird-species classification head for your dataset.
 |   +-- predict.py
 |   +-- create_submission.py
 |   +-- train.py
-+-- original EfficientNetB0 launcher .py file
 +-- requirements.txt
 +-- README.md
 ```
@@ -51,8 +50,6 @@ new bird-species classification head for your dataset.
 - `scripts/predict.py` - predicts the bird class for one image.
 - `scripts/create_submission.py` - creates `predictions.csv` for the HV-AI test
   set.
-- Original EfficientNetB0 launcher `.py` file - simple launcher that runs the
-  training script. The recommended command is still `python scripts/train.py`.
 
 ## Dataset Format
 
@@ -127,9 +124,6 @@ If your dataset is in a different folder:
 ```bash
 python scripts/train.py --data-dir "path/to/HV-AI-2024" --train-csv "path/to/HV-AI-2024/train.csv"
 ```
-
-You can also run the launcher file if you kept the original filename. For most
-usage, `scripts/train.py` is the cleaner command.
 
 ## Outputs
 
