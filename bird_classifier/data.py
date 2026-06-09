@@ -1,6 +1,6 @@
 """Dataset CSV loading, splitting, and image generator helpers.
 
-The project expects the HV-AI-2024 dataset layout, where `train.csv` stores image
+The project expects the `birds-dataset` layout, where `train.csv` stores image
 paths and class labels while images live under `images/train` and `images/test`.
 The optional `bbox` column is kept out of model training because this classifier
 uses full images, not cropped bounding boxes.
@@ -19,7 +19,7 @@ def build_train_dataframe(data_dir: Path, csv_path: Path) -> pd.DataFrame:
     """Build a labeled dataframe from `train.csv`.
 
     Args:
-        data_dir: Dataset root directory, for example `HV-AI-2024`.
+        data_dir: Dataset root directory, for example `birds-dataset`.
         csv_path: Path to the training CSV. It must contain `path` and `class`.
 
     Returns:
@@ -49,7 +49,7 @@ def build_submission_dataframe(data_dir: Path, csv_path: Path) -> pd.DataFrame:
     """Build an unlabeled dataframe from `test.csv`.
 
     Args:
-        data_dir: Dataset root directory, for example `HV-AI-2024`.
+        data_dir: Dataset root directory, for example `birds-dataset`.
         csv_path: Path to the test CSV. It must contain `path`.
 
     Returns:

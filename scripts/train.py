@@ -1,6 +1,6 @@
 """Command-line training entry point for the EfficientNetB0 bird classifier.
 
-This script reads `HV-AI-2024/train.csv`, builds train/validation/test
+This script reads `birds-dataset/train.csv`, builds train/validation/test
 generators, trains the EfficientNetB0 transfer-learning model, saves the model,
 and writes evaluation artifacts to the output directory.
 """

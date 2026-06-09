@@ -1,4 +1,4 @@
-"""Create a `predictions.csv` file from HV-AI-2024 `test.csv`.
+"""Create a `predictions.csv` file from `birds-dataset/test.csv`.
 
 The output file follows the expected challenge format:
 `path,predicted_label,confidence_score`.

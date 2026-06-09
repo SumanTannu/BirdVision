@@ -14,9 +14,9 @@ class TrainConfig:
     """Container for model training and output settings.
 
     Attributes:
-        data_dir: Root directory of the HV-AI dataset. The expected layout is
-            `HV-AI-2024/images/train`, `HV-AI-2024/images/test`,
-            `HV-AI-2024/train.csv`, and `HV-AI-2024/test.csv`.
+        data_dir: Root directory of the bird dataset. The expected layout is
+            `birds-dataset/images/train`, `birds-dataset/images/test`,
+            `birds-dataset/train.csv`, and `birds-dataset/test.csv`.
         train_csv: CSV file containing training image paths and class labels.
             The expected columns are `path`, `class`, and optionally `bbox`.
         test_csv: CSV file containing test image paths. The expected columns are
@@ -45,9 +45,9 @@ class TrainConfig:
             EfficientNetB0.
     """
 
-    data_dir: Path = Path("HV-AI-2024")
-    train_csv: Path = Path("HV-AI-2024/train.csv")
-    test_csv: Path = Path("HV-AI-2024/test.csv")
+    data_dir: Path = Path("birds-dataset")
+    train_csv: Path = Path("birds-dataset/train.csv")
+    test_csv: Path = Path("birds-dataset/test.csv")
     output_dir: Path = Path("outputs")
     model_name: str = "efficientnetb0_birds.keras"
     image_size: tuple[int, int] = (224, 224)

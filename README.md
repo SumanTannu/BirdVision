@@ -1,7 +1,7 @@
 # Bird Classification with EfficientNetB0
 
 This project trains a bird species classifier using TensorFlow/Keras and the
-EfficientNetB0 transfer-learning model. It is set up for the `HV-AI-2024`
+EfficientNetB0 transfer-learning model. It is set up for the `birds-dataset`
 dataset layout, where labels are stored in `train.csv` and the test images are
 listed in `test.csv`.
 
@@ -48,15 +48,14 @@ new bird-species classification head for your dataset.
 - `scripts/train.py` - main training command.
 - `scripts/evaluate.py` - evaluates a saved model.
 - `scripts/predict.py` - predicts the bird class for one image.
-- `scripts/create_submission.py` - creates `predictions.csv` for the HV-AI test
-  set.
+- `scripts/create_submission.py` - creates `predictions.csv` for the test set.
 
 ## Dataset Format
 
 Your dataset should be arranged like this:
 
 ```text
-HV-AI-2024/
+birds-dataset/
 +-- images/
 |   +-- train/
 |   +-- test/
@@ -103,8 +102,8 @@ python scripts/train.py
 This uses:
 
 ```text
-data directory: HV-AI-2024
-train CSV:      HV-AI-2024/train.csv
+data directory: birds-dataset
+train CSV:      birds-dataset/train.csv
 ```
 
 Train with fewer epochs:
@@ -122,7 +121,7 @@ python scripts/train.py --batch-size 16
 If your dataset is in a different folder:
 
 ```bash
-python scripts/train.py --data-dir "path/to/HV-AI-2024" --train-csv "path/to/HV-AI-2024/train.csv"
+python scripts/train.py --data-dir "path/to/birds-dataset" --train-csv "path/to/birds-dataset/train.csv"
 ```
 
 ## Outputs
@@ -176,7 +175,7 @@ The command prints the predicted class name and confidence score.
 
 ## Create `predictions.csv`
 
-After training, create the final prediction file for `HV-AI-2024/test.csv`:
+After training, create the final prediction file for `birds-dataset/test.csv`:
 
 ```bash
 python scripts/create_submission.py

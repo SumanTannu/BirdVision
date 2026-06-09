@@ -15,8 +15,8 @@ predictions.csv
 *.hdf5
 
 # Local datasets and archives
-HV-AI-2024/images/
-HV-AI-2024.zip
+birds-dataset/images/
+birds-dataset.zip
 *.zip
 
 # Unrelated local documents
